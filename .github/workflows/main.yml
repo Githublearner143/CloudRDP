@@ -1,0 +1,13 @@
+name: RDP
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up RDP
+      run: |
+        sudo apt update
+        sudo apt install -y xrdp
+        sudo systemctl enable xrdp
+        sudo systemctl start xrdp
+        echo "RDP setup complete"
